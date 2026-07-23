@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matérias | Revista Ápice</title>
+<meta name="description" content="Todas as matérias e profissionais destacados pela Revista Ápice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand"><span class="mark">Á</span>Revista Ápice</a>
+    <nav class="main-nav">
+      <a href="index.html">Início</a>
+      <a href="materias.html" class="active">Matérias</a>
+      <a href="capas.html">Capas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+  <div class="container mobile-nav">
+    <a href="index.html">Início</a>
+    <a href="materias.html">Matérias</a>
+    <a href="capas.html">Capas</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</header>
+
+<section style="padding-top:60px;">
+  <div class="container">
+    <div class="eyebrow">Acervo</div>
+    <h1 style="font-family:var(--serif); font-size:clamp(32px,5vw,52px); margin:10px 0 34px;">Matérias</h1>
+
+    <input type="text" class="search-bar" id="search" placeholder="Buscar matérias...">
+    <div class="filters" id="filters"></div>
+
+    <div class="grid" id="materias-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Revista Ápice. Todos os direitos reservados.</span>
+      <span>Uma iniciativa Prestígio Nacional</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+  let activeCategory = "Todos";
+  let searchTerm = "";
+
+  function render() {
+    const grid = document.getElementById("materias-grid");
+    const filtered = ARTICLES.filter(a => {
+      const matchCat = activeCategory === "Todos" || a.category === activeCategory;
+      const matchSearch = (a.name + a.role + a.category).toLowerCase().includes(searchTerm.toLowerCase());
+      return matchCat && matchSearch;
+    });
+
+    grid.innerHTML = filtered.length ? filtered.map(a => `
+      <a href="materia.html?slug=${a.slug}" class="card">
+        <div class="thumb" style="background-image:url('${a.img}')">
+          <span class="badge">${a.category}</span>
+        </div>
+        <div class="info">
+          <h3>${a.name}</h3>
+          <div class="role">${a.role}</div>
+          <div class="read">Ler Matéria →</div>
+        </div>
+      </a>
+    `).join("") : `<p class="muted">Nenhuma matéria encontrada.</p>`;
+  }
+
+  const filtersEl = document.getElementById("filters");
+  filtersEl.innerHTML = CATEGORIES.map(c => `<button class="pill ${c === "Todos" ? "active" : ""}" data-cat="${c}">${c}</button>`).join("");
+
+  filtersEl.addEventListener("click", e => {
+    if (!e.target.matches(".pill")) return;
+    activeCategory = e.target.dataset.cat;
+    document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+    e.target.classList.add("active");
+    render();
+  });
+
+  document.getElementById("search").addEventListener("input", e => {
+    searchTerm = e.target.value;
+    render();
+  });
+
+  render();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Matéria | Revista Ápice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container row">
+    <a href="index.html" class="brand"><span class="mark">Á</span>Revista Ápice</a>
+    <nav class="main-nav">
+      <a href="index.html">Início</a>
+      <a href="materias.html" class="active">Matérias</a>
+      <a href="capas.html">Capas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+  <div class="container mobile-nav">
+    <a href="index.html">Início</a>
+    <a href="materias.html">Matérias</a>
+    <a href="capas.html">Capas</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+  </div>
+</header>
+
+<div id="content"></div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Revista Ápice. Todos os direitos reservados.</span>
+      <span>Uma iniciativa Prestígio Nacional</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("slug");
+  const article = ARTICLES.find(a => a.slug === slug) || ARTICLES[0];
+
+  document.getElementById("page-title").textContent = `${article.name} | Revista Ápice`;
+
+  document.getElementById("content").innerHTML = `
+    <div class="article-cover" style="background-image:url('${article.img}')">
+      <div class="container info">
+        <div class="vol">${article.vol} — ${article.date} · ${article.category}</div>
+        <h1>${article.name}</h1>
+        <div class="role">${article.role}</div>
+      </div>
+    </div>
+    <div class="article-body">
+      ${article.body.map(p => `<p>${p}</p>`).join("")}
+      <blockquote>"${article.quote}"</blockquote>
+      <div class="article-footer-tags">
+        <div class="tag"><span class="dot"></span> Trajetórias que Inspiram</div>
+        <div class="tag"><span class="dot"></span> Excelência e Propósito</div>
+        <div class="tag"><span class="dot"></span> Histórias de Impacto</div>
+      </div>
+      <div style="margin-top:50px; text-align:center;">
+        <a href="materias.html" class="btn">← Ver Todas as Matérias</a>
+      </div>
+    </div>
+  `;
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
