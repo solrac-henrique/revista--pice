@@ -201,9 +201,9 @@ nav.main-nav a.active { color: var(--gold); }
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center 22%;
   opacity: 0.55;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease, background-position 0.6s ease;
 }
 
 .hero-overlay {
@@ -516,11 +516,8 @@ section { padding: 88px 0; }
 .card .thumb {
   height: 280px;
   background-size: cover;
-  background-position: center;
+  background-position: center 20%;
   position: relative;
-  overflow: hidden;
-  transition: background-size 0.6s ease;
-}
 
 .card:hover .thumb { background-size: 110%; }
 
@@ -565,7 +562,7 @@ section { padding: 88px 0; }
 .cover-item {
   aspect-ratio: 3 / 4;
   background-size: cover;
-  background-position: center;
+  background-position: center 18%;
   position: relative;
   border: 1px solid var(--line);
   overflow: hidden;
@@ -760,7 +757,7 @@ footer {
   height: 60vh;
   min-height: 380px;
   background-size: cover;
-  background-position: center;
+  background-position: center 18%;
   display: flex;
   align-items: flex-end;
 }
