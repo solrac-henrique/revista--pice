@@ -22,7 +22,6 @@
       <a href="contato.html">Contato</a>
     </nav>
     <div style="display:flex; align-items:center; gap:14px;">
-      <a href="contato.html" class="btn solid" style="display:none" id="desktop-cta">Seja Destaque</a>
       <button class="menu-toggle" aria-label="Abrir menu">☰</button>
     </div>
   </div>
@@ -35,26 +34,30 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow-pill">Mídia · Reconhecimento · Autoridade</span>
-    <h1>ÁPICE<em>revista</em></h1>
-    <p class="lede">Portal editorial dedicado a destacar profissionais brasileiros de excelência através de matérias autorais e capas exclusivas que elevam sua autoridade.</p>
-    <div class="actions">
-      <a href="contato.html" class="btn solid">Seja Destaque</a>
-      <a href="materias.html" class="btn">Ver Matérias</a>
+<section class="hero-carousel" id="hero-carousel">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-carousel-inner">
+    <div class="hero-carousel-left">
+      <span class="eyebrow-pill">Mídia e Reconhecimento</span>
+      <h1>ÁPICE<em>revista</em></h1>
+      <p class="lede">Portal editorial dedicado a destacar profissionais brasileiros de excelência através de matérias autorais e capas exclusivas que elevam sua autoridade.</p>
+      <div class="actions">
+        <a href="contato.html" class="btn solid">Seja Destaque</a>
+        <a href="materias.html" class="btn">Ver Matérias</a>
+      </div>
     </div>
+    <a href="#" class="hero-carousel-card" id="hero-card"></a>
+  </div>
+  <button class="hero-nav prev" id="hero-prev" aria-label="Matéria anterior">‹</button>
+  <button class="hero-nav next" id="hero-next" aria-label="Próxima matéria">›</button>
+  <div class="hero-explore">
+    <span>Explore</span>
+    <span class="arrow">↓</span>
   </div>
 </section>
 
 <div class="divider-mark"><div class="line"></div><div class="seal">Á</div><div class="line"></div></div>
-
-<section>
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:10px;">Capa desta edição</div>
-    <div class="feature-card" id="feature-card"></div>
-  </div>
-</section>
 
 <section>
   <div class="container">
@@ -157,19 +160,37 @@
 
 <script src="js/data.js"></script>
 <script>
-  const feature = ARTICLES[0];
-  document.getElementById("feature-card").innerHTML = `
-    <div class="media" style="background-image:url('${feature.img}')">
-      <span class="vol">${feature.vol} — ${feature.date}</span>
-    </div>
-    <div class="body">
-      <div class="eyebrow">${feature.category}</div>
-      <h3>${feature.name}</h3>
-      <div class="role">${feature.role}</div>
-      <p class="muted">${feature.excerpt}</p>
-      <a href="materia.html?slug=${feature.slug}" class="btn" style="align-self:flex-start;">Ler Matéria</a>
-    </div>
-  `;
+  const heroArticles = ARTICLES.slice(0, 5);
+  let heroIndex = 0;
+  let heroTimer;
+
+  function renderHero() {
+    const a = heroArticles[heroIndex];
+    document.getElementById("hero-bg").style.backgroundImage = `url('${a.img}')`;
+    const card = document.getElementById("hero-card");
+    card.href = `materia.html?slug=${a.slug}`;
+    card.innerHTML = `
+      <div class="vol">${a.vol} — ${a.date}</div>
+      <h3>${a.name}</h3>
+      <div class="role">${a.role}</div>
+      <p>${a.excerpt}</p>
+      <div class="read">Ler Matéria →</div>
+    `;
+  }
+
+  function nextHero() { heroIndex = (heroIndex + 1) % heroArticles.length; renderHero(); }
+  function prevHero() { heroIndex = (heroIndex - 1 + heroArticles.length) % heroArticles.length; renderHero(); }
+
+  function restartHeroTimer() {
+    clearInterval(heroTimer);
+    heroTimer = setInterval(nextHero, 6000);
+  }
+
+  document.getElementById("hero-next").addEventListener("click", () => { nextHero(); restartHeroTimer(); });
+  document.getElementById("hero-prev").addEventListener("click", () => { prevHero(); restartHeroTimer(); });
+
+  renderHero();
+  restartHeroTimer();
 
   const recentGrid = document.getElementById("recent-grid");
   recentGrid.innerHTML = ARTICLES.slice(0, 3).map(a => `
