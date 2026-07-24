@@ -187,6 +187,152 @@ nav.main-nav a.active { color: var(--gold); }
 
 /* ---------- Hero ---------- */
 
+/* ---------- Hero Carousel (full-bleed photo) ---------- */
+
+.hero-carousel {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  transition: opacity 0.6s ease;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11,10,8,0.97) 0%, rgba(11,10,8,0.82) 42%, rgba(11,10,8,0.3) 100%),
+    linear-gradient(0deg, rgba(11,10,8,0.9) 0%, rgba(11,10,8,0) 30%);
+}
+
+.hero-carousel-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 70px 0 40px;
+  width: 100%;
+}
+
+.hero-carousel-left { max-width: 540px; }
+
+.hero-carousel-left h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.95;
+  margin: 22px 0 0;
+}
+
+.hero-carousel-left h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  display: block;
+  font-size: 0.48em;
+  margin-top: 6px;
+}
+
+.hero-carousel-left p.lede {
+  color: var(--text-muted);
+  font-size: 16.5px;
+  margin: 24px 0 32px;
+  max-width: 460px;
+}
+
+.hero-carousel-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(11, 10, 8, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  padding: 34px;
+  max-width: 380px;
+  width: 100%;
+  display: block;
+  transition: border-color 0.3s ease;
+}
+
+.hero-carousel-card:hover { border-color: var(--gold); }
+
+.hero-carousel-card .vol {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.hero-carousel-card h3 { font-family: var(--serif); font-size: 26px; margin: 0 0 4px; }
+
+.hero-carousel-card .role { color: var(--gold); font-size: 13px; margin-bottom: 14px; }
+
+.hero-carousel-card p { color: var(--text-muted); font-size: 14px; margin: 0 0 18px; }
+
+.hero-carousel-card .read {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(11,10,8,0.5);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.hero-nav:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-nav.prev { left: 20px; }
+.hero-nav.next { right: 20px; }
+
+@media (max-width: 860px) {
+  .hero-nav { display: none; }
+}
+
+.hero-explore {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-explore .arrow { color: var(--gold); font-size: 14px; }
+
+/* ---------- Hero (fallback, sem foto — mantido para outras páginas se precisar) ---------- */
+
 .hero {
   padding: 90px 0 60px;
   text-align: center;
