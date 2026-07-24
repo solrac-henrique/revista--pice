@@ -12,7 +12,7 @@ const ARTICLES = [
     category: "Dermatologia",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Referência em dermatologia clínica, une rigor técnico e escuta atenta para tratar cada pele como única.",
     body: [
       "A atuação da Dra. Beatriz Kanashiro é marcada pela combinação entre precisão diagnóstica e um olhar atento às particularidades de cada paciente. Formada com foco em dermatologia clínica e estética, ela construiu uma trajetória pautada na atualização constante e na escuta cuidadosa antes de qualquer indicação de tratamento.",
@@ -28,7 +28,7 @@ const ARTICLES = [
     category: "Saúde",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Especialista em recuperação de lesões esportivas, alia tecnologia de ponta a um plano de reabilitação humano.",
     body: [
       "O trabalho do Dr. Rafael Tavares nasce de uma constatação simples: atletas amadores costumam receber cuidado ortopédico menos criterioso do que profissionais, mesmo enfrentando lesões igualmente sérias. Foi para corrigir essa lacuna que ele estruturou sua prática em torno de protocolos de reabilitação individualizados.",
@@ -44,7 +44,7 @@ const ARTICLES = [
     category: "Nutrição",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Traduz ciência da nutrição em rotinas reais, sem dietas restritivas ou promessas vazias.",
     body: [
       "Camila Nogueira construiu sua reputação recusando um dos maiores clichês da nutrição esportiva: a dieta genérica. Cada plano alimentar que ela desenvolve nasce de uma pergunta central — o que essa pessoa consegue sustentar na vida real, não apenas na teoria?",
@@ -60,7 +60,7 @@ const ARTICLES = [
     category: "Empresarial",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Ajuda pequenos empresários a organizar finanças com clareza, sem jargão desnecessário.",
     body: [
       "Fernando Botelho atua há anos ajudando pequenos e médios empresários a enxergar com clareza o que realmente acontece dentro do caixa de seus negócios. Sua missão, como ele mesmo descreve, é 'tirar a contabilidade do campo abstrato e trazer para decisões do dia a dia'.",
@@ -76,7 +76,7 @@ const ARTICLES = [
     category: "Arquitetura",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Projeta ambientes que equilibram estética contemporânea e funcionalidade real do dia a dia.",
     body: [
       "A trajetória de Juliana Prado Lima é marcada por um compromisso: cada projeto deve refletir como a pessoa realmente vive, não como uma revista de decoração sugere que ela deveria viver. Essa filosofia guia desde o primeiro briefing até o acompanhamento final de obra.",
@@ -92,7 +92,7 @@ const ARTICLES = [
     category: "Imóveis",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Especialista em primeira compra, guia famílias por um dos processos mais decisivos da vida financeira.",
     body: [
       "Rodrigo Vasconcelos se especializou em um público específico: famílias comprando seu primeiro imóvel. Ele identificou, ao longo da carreira, que esse grupo costuma receber menos atenção qualificada do que investidores experientes — apesar de estar tomando uma das decisões financeiras mais importantes da vida.",
