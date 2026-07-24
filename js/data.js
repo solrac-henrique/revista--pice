@@ -60,7 +60,7 @@ const ARTICLES = [
     category: "Empresarial",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=90&w=1800&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Ajuda pequenos empresários a organizar finanças com clareza, sem jargão desnecessário.",
     body: [
       "Fernando Botelho atua há anos ajudando pequenos e médios empresários a enxergar com clareza o que realmente acontece dentro do caixa de seus negócios. Sua missão, como ele mesmo descreve, é 'tirar a contabilidade do campo abstrato e trazer para decisões do dia a dia'.",
@@ -76,7 +76,7 @@ const ARTICLES = [
     category: "Arquitetura",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=90&w=1800&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Projeta ambientes que equilibram estética contemporânea e funcionalidade real do dia a dia.",
     body: [
       "A trajetória de Juliana Prado Lima é marcada por um compromisso: cada projeto deve refletir como a pessoa realmente vive, não como uma revista de decoração sugere que ela deveria viver. Essa filosofia guia desde o primeiro briefing até o acompanhamento final de obra.",
@@ -92,7 +92,7 @@ const ARTICLES = [
     category: "Imóveis",
     vol: "Vol. 01",
     date: "Julho 2026",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=90&w=1800&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=90&w=1800&auto=format&fit=crop",
     excerpt: "Especialista em primeira compra, guia famílias por um dos processos mais decisivos da vida financeira.",
     body: [
       "Rodrigo Vasconcelos se especializou em um público específico: famílias comprando seu primeiro imóvel. Ele identificou, ao longo da carreira, que esse grupo costuma receber menos atenção qualificada do que investidores experientes — apesar de estar tomando uma das decisões financeiras mais importantes da vida.",
@@ -102,5 +102,7 @@ const ARTICLES = [
     quote: "Comprar a primeira casa não devia ser um processo assustador — devia ser guiado com cuidado."
   }
 ];
+
+const CATEGORIES = ["Todos", ...new Set(ARTICLES.map(a => a.category))];
 
 const CATEGORIES = ["Todos", ...new Set(ARTICLES.map(a => a.category))];
