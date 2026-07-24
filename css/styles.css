@@ -567,6 +567,10 @@ section { padding: 88px 0; }
   border: 1px solid var(--line);
   overflow: hidden;
   transition: background-size 0.6s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
 }
 
 .cover-item:hover {
@@ -578,20 +582,66 @@ section { padding: 88px 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11,10,8,0) 50%, rgba(11,10,8,0.92) 100%);
+  background: linear-gradient(180deg, rgba(11,10,8,0.55) 0%, rgba(11,10,8,0.1) 30%, rgba(11,10,8,0.15) 55%, rgba(11,10,8,0.95) 100%);
+  z-index: 1;
+}
+
+.cover-item .cover-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.cover-item .cover-masthead {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(20px, 4vw, 30px);
+  letter-spacing: 0.06em;
+  color: rgba(243, 237, 225, 0.92);
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.cover-item .cover-masthead em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.5em;
+  color: var(--gold);
+  margin-top: 2px;
 }
 
 .cover-item .cap-info {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  right: 14px;
+  position: relative;
   z-index: 2;
 }
 
-.cover-item .cap-info .cn { font-family: var(--serif); font-size: 16px; }
-.cover-item .cap-info .cr { font-size: 11px; color: var(--gold); }
+.cover-item .cap-info .cn { font-family: var(--serif); font-size: 15px; line-height: 1.2; }
+.cover-item .cap-info .cr { font-size: 10.5px; color: var(--gold); margin-top: 2px; }
 
+.cover-item .cover-barcode {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 20px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.cover-item .cover-barcode span {
+  display: block;
+  width: 2px;
+  background: var(--text-muted);
+}
 /* ---------- Values ---------- */
 
 .values-grid {
