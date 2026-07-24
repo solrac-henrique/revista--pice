@@ -104,5 +104,3 @@ const ARTICLES = [
 ];
 
 const CATEGORIES = ["Todos", ...new Set(ARTICLES.map(a => a.category))];
-
-const CATEGORIES = ["Todos", ...new Set(ARTICLES.map(a => a.category))];
