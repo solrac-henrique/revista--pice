@@ -54,11 +54,27 @@
 
 <script src="js/data.js"></script>
 <script>
-  document.getElementById("cover-grid").innerHTML = ARTICLES.map(a => `
+  function barcode() {
+    let bars = "";
+    for (let i = 0; i < 22; i++) {
+      const w = Math.random() > 0.7 ? 2 : 1;
+      const h = 10 + Math.random() * 10;
+      bars += `<span style="width:${w}px; height:${h}px;"></span>`;
+    }
+    return bars;
+  }
+
+  document.getElementById("cover-grid").innerHTML = ARTICLES.map((a, i) => `
     <a href="materia.html?slug=${a.slug}" class="cover-item" style="background-image:url('${a.img}')">
+      <div class="cover-top">
+        <span>Vol. 0${i + 1}</span>
+        <span>${a.date}</span>
+      </div>
+      <div class="cover-masthead">ÁPICE<em>revista</em></div>
       <div class="cap-info">
         <div class="cn">${a.name}</div>
         <div class="cr">${a.role}</div>
+        <div class="cover-barcode">${barcode()}</div>
       </div>
     </a>
   `).join("");
